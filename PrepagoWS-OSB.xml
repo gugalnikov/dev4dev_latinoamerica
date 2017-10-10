@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9c2b2829-2841-4b1f-a0bf-cf6822a37204" activeEnvironment="Default" name="PrepagoWS_OSB" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="697d5c69-f295-4102-92b6-5bd9d920603c" wsaVersion="NONE" name="PrepagoWSPortBinding" type="wsdl" bindingName="{http://ws.abctelco/}PrepagoWSPortBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/wsdl/PrepagoWS_Estandarizado.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/wsdl/PrepagoWS_Estandarizado.wsdl"><con:part><con:url>file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/wsdl/PrepagoWS_Estandarizado.wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="http://ws.abctelco/" name="PrepagoWSService" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.abctelco/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://ws.abctelco/" schemaLocation="../xsd/PrepagoWS.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="realizarPrepago">
+    <part name="parameters" element="tns:realizarPrepago"/>
+  </message>
+  <message name="realizarPrepagoResponse">
+    <part name="parameters" element="tns:realizarPrepagoResponse"/>
+  </message>
+  <portType name="PrepagoWS">
+    <operation name="realizarPrepago">
+      <input wsam:Action="http://ws.abctelco/PrepagoWS/realizarPrepagoRequest" message="tns:realizarPrepago"/>
+      <output wsam:Action="http://ws.abctelco/PrepagoWS/realizarPrepagoResponse" message="tns:realizarPrepagoResponse"/>
+    </operation>
+  </portType>
+  <binding name="PrepagoWSPortBinding" type="tns:PrepagoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="realizarPrepago">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PrepagoWSService">
+    <port name="PrepagoWSPort" binding="tns:PrepagoWSPortBinding">
+      <soap:address location="http://localhost:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/xsd/PrepagoWS.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://ws.abctelco/" xmlns:ns0="http://ws.abctelco/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="realizarPrepago">
+    <xsd:sequence>
+      <xsd:element name="monto" type="xsd:double"/>
+      <xsd:element name="idCliente" type="xsd:long"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="realizarPrepagoResponse">
+    <xsd:sequence>
+      <xsd:element name="folio" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="realizarPrepago" type="ns0:realizarPrepago"/>
+  <xsd:element name="realizarPrepagoResponse" type="ns0:realizarPrepagoResponse"/>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort</con:endpoint></con:endpoints><con:operation id="f72f6a33-46bb-4532-8667-30e3f7105b95" isOneWay="false" action="" name="realizarPrepago" bindingOperationName="realizarPrepago" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b37a4121-8b52-4d87-8e14-fa48efe2b480" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7101/PrepagoWS/PrepagoProxyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.abctelco/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:realizarPrepago>
+         <monto>1000</monto>
+         <idCliente>1234</idCliente>
+      </ws:realizarPrepago>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.abctelco/PrepagoWS/realizarPrepagoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

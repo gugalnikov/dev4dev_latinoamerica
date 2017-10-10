@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c8f0c742-1fd4-40bd-b0ae-d60a0051773f" activeEnvironment="Default" name="PrepagoWS_Original" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="89366f5b-24ad-46c2-a035-f353768d66d8" wsaVersion="NONE" name="PrepagoWSPortBinding" type="wsdl" bindingName="{http://example.org/}PrepagoWSPortBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/wsdl/PrepagoWS_Original.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/wsdl/PrepagoWS_Original.wsdl"><con:part><con:url>file:/Users/aviveros/jdeveloper/mywork/PrepagoApp/PrepagoWS/Resources/wsdl/PrepagoWS_Original.wsdl</con:url><con:content><![CDATA[<!--Auto Generated-->
+<definitions targetNamespace="http://example.org/" name="PrepagoWSService" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://example.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://example.org/" elementFormDefault="qualified">
+      <xsd:complexType name="rPrep24">
+        <xsd:sequence>
+          <xsd:element name="arg0" type="xsd:double"/>
+          <xsd:element name="arg1" type="xsd:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="rPrep24ret">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="rPrep24" type="tns:rPrep24"/>
+      <xsd:element name="rPrep24ret" type="tns:rPrep24ret"/>
+    </xsd:schema>
+  </types>
+  <message name="rPrep24">
+    <part name="parameters" element="tns:rPrep24"/>
+  </message>
+  <message name="rPrep24ret">
+    <part name="parameters" element="tns:rPrep24ret"/>
+  </message>
+  <portType name="PrepagoWS">
+    <operation name="realizarPrepago">
+      <input wsam:Action="http://example.org/PrepagoWS/realizarPrepagoRequest" message="tns:rPrep24"/>
+      <output wsam:Action="http://example.org/PrepagoWS/realizarPrepagoResponse" message="tns:rPrep24ret"/>
+    </operation>
+  </portType>
+  <binding name="PrepagoWSPortBinding" type="tns:PrepagoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="realizarPrepago">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PrepagoWSService">
+    <port name="PrepagoWSPort" binding="tns:PrepagoWSPortBinding">
+      <soap:address location="http://localhost:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://Arturos-MacBook-Pro.local:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort</con:endpoint><con:endpoint>http://localhost:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort</con:endpoint></con:endpoints><con:operation id="8fc60464-4695-4a98-882c-bcbac9672f1f" isOneWay="false" action="" name="realizarPrepago" bindingOperationName="realizarPrepago" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b945e43c-8ec3-408a-85e3-c6df08a5833d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exam="http://example.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exam:rPrep24>
+         <exam:arg0>1</exam:arg0>
+         <exam:arg1>1</exam:arg1>
+      </exam:rPrep24>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://example.org/PrepagoWS/realizarPrepagoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="e37f2615-b28d-40ee-9173-f52056376815" port="9022" path="/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort" host="Arturos-MacBook-Pro.local" name="PrepagoWSMockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="realizarPrepago" id="47db5d8a-4505-4077-9a5f-c515141e307e" interface="PrepagoWSPortBinding" operation="realizarPrepago"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="93720cce-3c95-4dcf-9594-99c606a5335b" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exam="http://example.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exam:rPrep24ret>
+         <!--Optional:-->
+         <exam:return>ABC1234</exam:return>
+      </exam:rPrep24ret>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://example.org/PrepagoWS/realizarPrepagoResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

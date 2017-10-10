@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.abctelco/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://ws.abctelco/" name="PrepagoWSService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://ws.abctelco/"
+                        schemaLocation="../xsd/PrepagoWS.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="realizarPrepago">
+        <part name="parameters" element="tns:realizarPrepago"/>
+    </message>
+    <message name="realizarPrepagoResponse">
+        <part name="parameters" element="tns:realizarPrepagoResponse"/>
+    </message>
+    <portType name="PrepagoWS">
+        <operation name="realizarPrepago">
+            <input wsam:Action="http://ws.abctelco/PrepagoWS/realizarPrepagoRequest" message="tns:realizarPrepago"/>
+            <output wsam:Action="http://ws.abctelco/PrepagoWS/realizarPrepagoResponse"
+                    message="tns:realizarPrepagoResponse"/>
+        </operation>
+    </portType>
+    <binding name="PrepagoWSPortBinding" type="tns:PrepagoWS">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="realizarPrepago">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PrepagoWSService">
+        <port name="PrepagoWSPort" binding="tns:PrepagoWSPortBinding">
+            <soap:address location="http://localhost:9022/ABCTelcoWS-PrepagoWS-context-root/PrepagoWSPort"/>
+        </port>
+    </service>
+</definitions>
